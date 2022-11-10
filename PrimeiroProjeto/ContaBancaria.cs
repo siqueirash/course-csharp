@@ -1,4 +1,6 @@
 ﻿
+using System.Globalization;
+
 namespace PrimeiroProjeto
 {
     class ContaBancaria
@@ -9,13 +11,17 @@ namespace PrimeiroProjeto
 
      
 
-        public ContaBancaria(int numero, string titular, double saldo)
+        public ContaBancaria(int numero, string titular)
         {
             Numero = numero;
             Titular = titular;
-            Saldo = saldo;
         }
-        
+
+        public ContaBancaria(int numero, string titular, double saldo): this(numero, titular)
+        {
+            Saldo = saldo;
+
+        }        
         public void Deposito(double quantia)
         {
             Saldo += quantia;
@@ -24,13 +30,18 @@ namespace PrimeiroProjeto
 
         public void Saque(double quantia)
         {
-
+            Saldo -= +quantia + 5.0;
         }
 
 
         public override string ToString()
         {
-            return Titular + ", " + Numero + ", " + Saldo;
+            return "Conta "
+                + Numero
+                + ", Titular: "
+                + Titular
+                + ", Saldo: $ "
+                + Saldo.ToString("F2", CultureInfo.InvariantCulture);
         }
 
 

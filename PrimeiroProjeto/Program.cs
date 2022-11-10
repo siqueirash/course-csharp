@@ -16,6 +16,7 @@ namespace PrimeiroProjeto
             double deposito = double.Parse(Console.ReadLine());
 
             cliente = new ContaBancaria(numero, titular, deposito);
+            cliente.Deposito(deposito);
 
             Console.WriteLine(cliente);
         }
