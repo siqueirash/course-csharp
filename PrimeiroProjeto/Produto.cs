@@ -1,24 +1,31 @@
 ﻿
 
-namespace PrimeiroProjeto {
-    class Produto {
+namespace PrimeiroProjeto
+{
+    class Produto
+    {
         private string _nome;
         public double Preco { get; private set; }
         public int Quantidade { get; private set; }
 
-        public Produto() {
+        public Produto()
+        {
             Quantidade = 10;
         }
 
-        public Produto(string nome, double preco) : this() {
+        public Produto(string nome, double preco) : this()
+        {
             _nome = nome;
             Preco = preco;
         }
 
-        public string Nome {
+        public string Nome
+        {
             get { return _nome; }
-            set {
-                if (value != null && value.Length > 1) {
+            set
+            {
+                if (value != null && value.Length > 1)
+                {
                     _nome = value;
 
                 }
@@ -26,18 +33,22 @@ namespace PrimeiroProjeto {
         }
 
 
-        public double ValorTotalEmEstoque() {
+        public double ValorTotalEmEstoque()
+        {
             return Preco * Quantidade;
         }
 
-        public void AdicionarProduto(int quantidade) {
+        public void AdicionarProduto(int quantidade)
+        {
             Quantidade += quantidade;
         }
 
-        public void RemoverProduto(int quantidade) {
+        public void RemoverProduto(int quantidade)
+        {
             Quantidade -= quantidade;
         }
-        public override string ToString() {
+        public override string ToString()
+        {
             return _nome + ", $ " + Preco + ", " + Quantidade;
         }
     }
