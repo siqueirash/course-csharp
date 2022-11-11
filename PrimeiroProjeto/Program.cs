@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace PrimeiroProjeto
 {
@@ -7,18 +8,16 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            ContaBancaria cliente;
-            Console.Write("Entre o número da conta: ");
-            int numero = int.Parse(Console.ReadLine());
-            Console.WriteLine("Entre o títular da conta: ");
-            string titular = Console.ReadLine();
-            Console.Write("Entre com deposito inicial: ");
-            double deposito = double.Parse(Console.ReadLine());
+            List<string> list = new List<string> { "Maria", "Carlos", "Bruno", "Carol"};
 
-            cliente = new ContaBancaria(numero, titular, deposito);
-            cliente.Deposito(deposito);
+            Console.Write("Digite sua pesquisa: ");
+            string busca = Console.ReadLine();
 
-            Console.WriteLine(cliente);
+            List<string> list2 = list.FindAll(x => x.StartsWith(busca));
+            foreach(string obj in list2)
+            {
+                Console.WriteLine(obj);
+            }
         }
 
 
